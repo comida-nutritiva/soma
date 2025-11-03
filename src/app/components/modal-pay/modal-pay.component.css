@@ -1,0 +1,74 @@
+.close-button{
+    width: 50%;
+    background-color: var(--beige);
+}
+.modal-background, .modal-header, .modal-body, .modal-footer{
+    background-color: var(--beige);
+}
+.modal-body{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.label-pick-up{
+    max-width: 50%;
+}
+.text{
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+}
+.form-check-input:checked {
+    background-color:var(--light-green); 
+    border-color: var(--light-green);
+}
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(11, 36, 22, 0.25); /* sombra del color */
+}
+.input-home{
+    width: 47%;
+    background-color: #f9f9f9;
+    color: var(--dark-green);
+    border: 1px solid var(--light-green);
+    border-radius: 8px;
+    box-shadow: var(--light-green);
+}
+input:focus{
+    color: var(--light-green) ;
+    box-shadow: var(--dark-green);
+    border-color: var(--light-green);
+}
+
+.ngb-dp-navigation-chevron, div.ngb-dp-weekday, span.ngb-tp-chevron{
+    color: var(--dark-green);
+}
+.ngb-dp-weekday{
+    color: var(--light-green);
+}
+div.btn-light, div.bg-primary{
+    background-color: rgb(40, 77, 56, 0.5);
+    color: var(--beige);
+}
+
+div.bg-primary {
+    background-color: #345635 !important; /* Tu verde principal */
+    color: #E3EFD3 !important;            /* Color de texto que contraste */
+    border-radius: 0.25rem;
+  }
+  
+div.btn-ligth.bg-primary:hover {
+background-color: #6B8F71 !important; /* Hover más suave */
+}
+button.dropdown-item:active{
+    background-color: var(--light-green);
+    color: var(--beige);
+}
+select.form-select:active{
+    background-color: var(--light-green);
+    color: var(--beige);
+}
+
+.warn{
+    color: red;
+}
+.msj{
+    color: var(--dark-green);
+}

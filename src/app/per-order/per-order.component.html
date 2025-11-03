@@ -1,0 +1,21 @@
+<div class="row mt-4 p-1">
+    <h3 class="title">Productos por pedido</h3>
+    <div *ngFor="let product of products.slice(0, 4); let i = index"   class="col-6 mt-2">
+       <div class="card d-flex justify-content-center description">
+            <img src="{{product.img}}" class="img-fluid" alt="">
+            <p class="bold text-center">{{product.name}}</p>
+            <p class="light fw-light text-center"> {{product.description}} </p>
+       </div>
+    </div>
+    <div class="col-12 mt-2">
+        <div class="card d-flex flex-column align-items-center card">
+                <img class="img-fluid p-2 img" src="{{last.img}}" alt="">
+                <h3 class="text-center">{{last.name}}</h3>
+                <p class="light text-center mb-2">
+                    {{last.description}}
+                </p>
+        </div>
+    </div>
+
+
+</div>

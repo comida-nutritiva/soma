@@ -1,0 +1,32 @@
+.card{
+    background-color: var(--light-green);
+    border-radius: 10%;
+    padding: 0.2rem 0.8rem 0.5rem 0.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--beige);
+    box-shadow: inset;
+    box-shadow:0 4px 10px rgba(0,0,0,0.6);
+}
+.description{
+    height: 100%;
+}
+p.light{
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 300;
+}
+.bold{
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+}
+.title{
+    text-shadow: rgb(0, 0, 0, 0.2) -1px 1px ;
+    color: var(--dark-green);
+}
+
+.img{
+    width: 40%;
+    display: block;
+}
+

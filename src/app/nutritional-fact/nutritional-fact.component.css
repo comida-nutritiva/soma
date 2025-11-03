@@ -1,0 +1,9 @@
+.fact{
+    background-color: var(--dark-green);
+}
+h2, h4, p{
+    color: var(--beige);
+}
+.space{
+    padding: 0 3rem;
+}

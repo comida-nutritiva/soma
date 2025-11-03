@@ -1,0 +1,19 @@
+<div class="row justify-content-center mt-1 mb-1">
+    <div class="col-3 d-flex align-content-center">
+        <div class="card-background d-flex align-self-center">
+            <img class="img-fluid " src='{{ product.img }}' alt="">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="col-12 justify-content-center">
+            <h4 class="d-flex justify-content-center mt-2 text-center">{{ product.name }}</h4>
+        </div>
+        <div class="col-12 justify-content-center">
+            <p class="d-flex justify-content-center m-0">{{ product.price }}</p>
+        </div>
+    </div>
+    <div class="col-2 d-flex justify-content-center align-content-center">
+       <app-modal [product]="product" class="d-flex align-self-center"></app-modal>
+    </div>
+</div>
+

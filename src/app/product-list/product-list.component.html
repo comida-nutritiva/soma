@@ -1,0 +1,8 @@
+<div class="conteiner pt-4">
+    <h3 class="title mb-2">Productos populares</h3>
+    <div *ngFor="let product of products; let i = index">
+        <app-card 
+        [product]="product"
+        ></app-card>
+    </div>
+</div>

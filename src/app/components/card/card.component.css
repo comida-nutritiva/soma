@@ -1,0 +1,10 @@
+
+.card-background{
+    background-color: var(--light-green);
+    border-radius: 10%;
+    box-shadow: inset;
+    box-shadow:0 4px 10px rgba(0,0,0,0.6);
+}
+div{
+    padding: 0;
+}

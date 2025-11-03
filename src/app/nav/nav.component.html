@@ -1,0 +1,48 @@
+<nav class="navbar fixed-bottom nav-color">
+    <div class="container-fluid justify-content-center">
+
+        <ng-template #content let-offcanvas>
+            <div class="offcanvas-header">
+                <h4 class="offcanvas-title">Mi Pedido</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+            </div>
+            <div class="offcanvas-body">
+
+                <ul class="list-group-flush li-background">
+                    <li *ngFor="let item of cart.cartItem; let i = index" class="d-flex flex-column h-1 li-background mt-2">        
+                        <div class="d-flex justify-content-between"> 
+                            <svg (click)="removeItem(item.id)" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M29.4643 0H3.53571C1.58371 0 0 1.58371 0 3.53571V29.4643C0 31.4163 1.58371 33 3.53571 33H29.4643C31.4163 33 33 31.4163 33 29.4643V3.53571C33 1.58371 31.4163 0 29.4643 0ZM6.77679 19.4464C6.29063 19.4464 5.89286 19.0487 5.89286 18.5625V14.4375C5.89286 13.9513 6.29063 13.5536 6.77679 13.5536H26.2232C26.7094 13.5536 27.1071 13.9513 27.1071 14.4375V18.5625C27.1071 19.0487 26.7094 19.4464 26.2232 19.4464H6.77679Z" fill="#F7F1DA"/></svg>                      
+                            <span class="principal-product align-self-center">{{item.product.name}}</span> 
+                            <span class=" align-self-center">
+                                {{item.product.price}}
+                            </span>
+                        </div>
+                        <ul *ngFor="let subitem of item.optionals; let i = index" class="list-group list-group-flush">
+                            <div class="d-flex justify-content-between">
+                                <div></div>
+                                <span class="align-self-center">{{subitem.name}} 
+                                    <span *ngIf="subitem.count == 1"> x1</span>
+                                    <span *ngIf="subitem.count == 2"> x2</span>
+                                </span> 
+                                <span class="align-self-center">{{subitem.price}}
+                                </span>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="row text-center d-flex justify-content-center bottom">
+                    <p>Total : {{total}}</p>
+                    <app-modal-pay></app-modal-pay>
+                </div>
+            </div>
+        </ng-template>
+        
+        <svg (click)="open(content)" lass="position-absolute top-0 start-100 translate-middle badge rounded-pill " width="37" height="33" viewBox="0 0 37 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M33.9244 19.421L36.961 6.0147C37.1803 5.04674 36.447 4.125 35.4577 4.125H10.2269L9.63812 1.23686C9.4914 0.516979 8.86009 0 8.12773 0H1.54167C0.690217 0 0 0.692549 0 1.54688V2.57812C0 3.43245 0.690217 4.125 1.54167 4.125H6.03068L10.5431 26.2605C9.46359 26.8834 8.73611 28.0514 8.73611 29.3906C8.73611 31.384 10.3466 33 12.3333 33C14.32 33 15.9306 31.384 15.9306 29.3906C15.9306 28.3804 15.5164 27.4677 14.8499 26.8125H28.3168C27.6502 27.4677 27.2361 28.3804 27.2361 29.3906C27.2361 31.384 28.8466 33 30.8333 33C32.82 33 34.4306 31.384 34.4306 29.3906C34.4306 27.9616 33.6027 26.7266 32.4021 26.1419L32.7564 24.5772C32.9757 23.6092 32.2424 22.6875 31.2531 22.6875H14.011L13.5906 20.625H32.4211C33.1409 20.625 33.7649 20.1252 33.9244 19.421Z" fill="#F7F1DA"/>
+        </svg>
+        <span class="translate-middle badge rounded-pill bg-success">
+            {{totalCart}}
+        <span class="visually-hidden">cart</span>
+        </span>
+    </div>
+</nav>

@@ -1,0 +1,58 @@
+<ng-template #content let-c="close" let-d="dismiss" >
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">{{ product.name }}</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<!-- BODY -->
+	<div class="modal-body">
+		<div class="background-image">
+			<img src="{{ product.img }}" class="img-fluid" alt="">
+		</div>
+		<p>{{product.description}}</p>
+		<h5>Opcionales</h5>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Producto</th>
+					<th scope="col">Valor</th>
+					<th scope="col">Cantidad</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr *ngFor="let optional of optionals; let i = index" >
+						<th class=" text-start align-middle" scope="row">{{optional.name}}</th>
+						<td class="text-center align-middle">
+							{{optional.price}}
+						</td>
+
+						<td class="text-center align-middle">
+							{{optional.count}}
+						</td>	
+						<td class="text-center align-middle">
+							<svg class="shadow" (click)="plus(optional)" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M29.4643 0H3.53571C1.58371 0 0 1.58371 0 3.53571V29.4643C0 31.4163 1.58371 33 3.53571 33H29.4643C31.4163 33 33 31.4163 33 29.4643V3.53571C33 1.58371 31.4163 0 29.4643 0ZM27.1071 18.5625C27.1071 19.0487 26.7094 19.4464 26.2232 19.4464H19.4464V26.2232C19.4464 26.7094 19.0487 27.1071 18.5625 27.1071H14.4375C13.9513 27.1071 13.5536 26.7094 13.5536 26.2232V19.4464H6.77679C6.29063 19.4464 5.89286 19.0487 5.89286 18.5625V14.4375C5.89286 13.9513 6.29063 13.5536 6.77679 13.5536H13.5536V6.77679C13.5536 6.29063 13.9513 5.89286 14.4375 5.89286H18.5625C19.0487 5.89286 19.4464 6.29063 19.4464 6.77679V13.5536H26.2232C26.7094 13.5536 27.1071 13.9513 27.1071 14.4375V18.5625Z" fill="#284D38"/>
+							</svg>
+						</td>					
+						<td class=" text-center align-middle">
+							<svg (click)="minus(optional)" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M29.4643 0H3.53571C1.58371 0 0 1.58371 0 3.53571V29.4643C0 31.4163 1.58371 33 3.53571 33H29.4643C31.4163 33 33 31.4163 33 29.4643V3.53571C33 1.58371 31.4163 0 29.4643 0ZM6.77679 19.4464C6.29063 19.4464 5.89286 19.0487 5.89286 18.5625V14.4375C5.89286 13.9513 6.29063 13.5536 6.77679 13.5536H26.2232C26.7094 13.5536 27.1071 13.9513 27.1071 14.4375V18.5625C27.1071 19.0487 26.7094 19.4464 26.2232 19.4464H6.77679Z" fill="#284D38"/>
+							</svg>
+						</td>
+					</tr>
+			</tbody>
+		</table>
+		<p class="warn" *ngIf="warn">{{warn}}</p>
+
+	</div>
+
+	<!-- FOOTER -->
+	<div class="modal-footer d-flex justify-content-between">
+		<h5 class="">Total</h5>
+		<p>{{total}}</p>
+		<button type="button" class="btn btn-outline-secondary" (click)="close()">Pedir</button>
+	</div>
+</ng-template>
+<svg (click)="open(content)" width="50" height="50" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M29.4643 0H3.53571C1.58371 0 0 1.58371 0 3.53571V29.4643C0 31.4163 1.58371 33 3.53571 33H29.4643C31.4163 33 33 31.4163 33 29.4643V3.53571C33 1.58371 31.4163 0 29.4643 0ZM27.1071 18.5625C27.1071 19.0487 26.7094 19.4464 26.2232 19.4464H19.4464V26.2232C19.4464 26.7094 19.0487 27.1071 18.5625 27.1071H14.4375C13.9513 27.1071 13.5536 26.7094 13.5536 26.2232V19.4464H6.77679C6.29063 19.4464 5.89286 19.0487 5.89286 18.5625V14.4375C5.89286 13.9513 6.29063 13.5536 6.77679 13.5536H13.5536V6.77679C13.5536 6.29063 13.9513 5.89286 14.4375 5.89286H18.5625C19.0487 5.89286 19.4464 6.29063 19.4464 6.77679V13.5536H26.2232C26.7094 13.5536 27.1071 13.9513 27.1071 14.4375V18.5625Z" fill="#284D38"/>
+</svg>

@@ -1,0 +1,36 @@
+.back{
+    color: var(--beige);
+    background-color: var(--dark-green);
+}
+.text h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 0;
+}
+.text h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0.1rem 0;
+}
+
+.text p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0.2rem 0 1rem 0;
+    color: #e3efd3;
+}
+
+.carousel-container{
+    width: 21rem;
+    height: 12.938rem;
+    background-color: var(--light-green);
+    display: block;
+    box-shadow: inset;
+    border-radius: 1.5rem;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    margin-bottom: 1.1rem;
+    margin-top: 1rem;
+}
+img{
+    max-height: 12.3rem;
+}

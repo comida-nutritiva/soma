@@ -1,0 +1,18 @@
+
+<div class="row justify-content-center back">
+    <div class="col-12 text text-center">
+        <h1>Comida</h1>
+        <h2>rica, sana y nutritiva</h2>
+        <p>Productos keto, low-carb y proteicos</p>
+    </div>
+    <!-- Carousel container images url in component.ts-->
+    <div class="carousel-container align-content-center">
+        <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+            <ng-template ngbSlide *ngFor="let url of products; let i = index" >
+                <div class="picsum-img-wrapper d-flex justify-content-center">
+                    <img img="img-fluid" src="{{url.img}}" alt=""/>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>

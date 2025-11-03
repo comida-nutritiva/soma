@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "name": "Pollo crema y verdeo",
+        "price": 9000.00,
+        "description": "Tarta de pollo, crema y verdeo, con sal y huevo. Masa con harina de almendra, huevo y lino. Rica, liviana y nutritiva.",
+        "img": "assets/img/pyv.png"
+    },{
+        "id": 1,
+        "name": "Acelga",
+        "price": 7000.00,
+        "description": "Tarta de acelga, huevo y muzzarella. Masa con harina de almendra, lino y huevo. Liviana, deliciosa y sin harinas refinadas.",
+        "img":"assets/img/acelga.png"
+    },{
+        "id": 2,
+        "name": "Capresse",
+        "price": 8000.00,
+        "description": "Tarta de muzzarella, albahaca, tomate y huevo. Masa de almendra, lino y huevo. Ideal para un almuerzo liviano y sabroso.",
+        "img": "assets/img/capresse.png"
+    },{
+        "id": 3,
+        "name": "Pan de Hamburguesa",
+        "price": 12000.00,
+        "description": "Pan de hamburguesa con harina de almendra, psyllium y huevo. Para tus hamburguesas, sándwiches o tostadas sin gluten.",
+        "img":"assets/img/pdhamburguesa.png"
+    },{
+        "id": 4,
+        "name": "Harina de Almendra",
+        "price": 20000.00,
+        "description": "Harina 100% de almendras, molida finamente para conservar su sabor y textura natural. Sin aditivos, conservantes ni ningún agregado artificial. Ideal para cocinar sin harinas refinadas, sumar proteínas y grasas de calidad, manteniendo tus recetas sanas y nutritivas." ,
+        "img":"assets/img/hdelmendra.png"
+    }
+
+]

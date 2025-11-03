@@ -1,0 +1,28 @@
+[
+    {
+        "id": 0,
+        "name": "Carne desmenuzada",
+        "price": 14000.00,
+        "description": "Carne de res desmenuzada con verdeo, muzzarella, sal, blend de especias con oliva y vinagre de vino, en pan keto.",
+        "img": "assets/img/carne desmenuzada sin fondo.png"
+    },{
+        "id": 1,
+        "name": "Bondiola desmenuzada",
+        "price": 13000.00,
+        "description": "Bondiola desmenuzada sal, blend de especias con cebolla y zanahorias, en pan keto.",
+        "img":"assets/img/bondiola.png"
+    },{
+        "id": 2,
+        "name": "Pollo crema y rucula",
+        "price": 13000.00,
+        "description": "Pollo, crema, oliva y ajo con morrones frescos y rucula, en pan keto.",
+        "img": "assets/img/pollo y verdeo sin fond.png"
+    },{
+        "id": 3,
+        "name": "Atun crema y verdeo",
+        "price": 11000.00,
+        "description": "Atun en lomos al natural con crema y verdeo salpimentado.",
+        "img":"assets/img/atun y crema sin fondo.png"
+    }
+
+]

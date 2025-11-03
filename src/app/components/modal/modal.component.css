@@ -1,0 +1,18 @@
+.modal-background, .modal-header, .modal-body, .modal-footer{
+    background-color: var(--beige);
+}
+div{
+    color: var(--dark-green);
+}
+.table, th, tr,td{
+    background-color: var(--beige);
+}
+.warn{
+    color: red;
+}
+.background-image{
+    background-color: var(--light-green);
+    border-radius: 10%;
+    margin-bottom: 1rem;
+}
+

@@ -1,0 +1,100 @@
+<ng-template #content let-c="close" let-d="dismiss" >
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Mi Pedido</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<!-- BODY -->
+	<div class="modal-body">
+		<form #deliveryForm="ngForm">
+			<div class="row">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label (click)="pickUpOnCheck(2)" [ngClass]="{ 'active': delivery }" for="delivery" class="btn btn-success d-flex align-items-center justify-content-center gap-2 label-pick-up">
+						<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 48.000000 48.000000"preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"> <path d="M40 451 c-36 -36 -46 -73 -30 -112 26 -63 89 -85 150 -54 37 19 50 43 50 90 0 47 -13 71 -50 90 -46 24 -87 19 -120 -14z m118 -21 c32 -30 30 -82 -4 -109 -54 -42 -118 -13 -118 54 0 66 74 99 122 55z"/><path d="M97 433 c-4 -3 -7 -15 -7 -25 0 -11 -7 -18 -20 -18 -11 0 -20 -7 -20 -15 0 -10 11 -15 35 -15 34 0 35 1 35 40 0 38 -8 49 -23 33z"/><path d="M307 333 c-12 -11 -8 -21 13 -26 18 -5 20 -14 20 -106 0 -100 0 -101 -24 -101 -18 0 -25 7 -30 30 l-6 31 -97 -3 -98 -3 -3 -42 -3 -43 196 0 c170 0 196 2 202 16 10 27 -24 83 -62 101 -42 20 -45 32 -7 30 24 -2 27 1 30 36 3 36 3 37 -32 37 -25 0 -36 5 -36 15 0 22 -48 44 -63 28z"/><path d="M104 225 c-11 -27 10 -36 77 -33 56 3 64 5 64 23 0 18 -8 20 -68 23 -54 2 -68 0 -73 -13z"/><path d="M132 38 c7 -19 47 -36 69 -31 11 3 24 14 30 24 9 18 5 19 -46 19 -41 0 -56 -3 -53 -12z"/> <path d="M340 40 c0 -5 11 -17 24 -25 27 -18 69 -8 79 19 5 13 -3 16 -48 16 -30 0 -55 -4 -55 -10z"/> </g> </svg>
+						<input class="ms-3 btn-check" [checked]="delivery" type="hidden" name="delivery" id="delivery" autocomplete="off" required>
+						<span class="mt-1">Delivery</span> 
+					</label>
+					<label (click)="pickUpOnCheck(1)" [ngClass]="{ 'active': pickUp }" for="pick-up" class="btn btn-success d-flex align-items-center justify-content-center gap-2 label-pick-up">
+						<svg width="33" height="33" viewBox="0 0 384 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192C0 85.961 85.961 0 192 0C298.039 0 384 85.961 384 192C384 269.413 357.03 291.031 211.732 501.67C202.197 515.444 181.802 515.443 172.268 501.67ZM192 272C236.183 272 272 236.183 272 192C272 147.817 236.183 112 192 112C147.817 112 112 147.817 112 192C112 236.183 147.817 272 192 272Z" fill="black"/></svg>
+						<input class="ms-3 btn-check" [checked]="pickUp"  type="hidden" name="pick-up" id="pick-up" autocomplete="off" required>
+						<span class="mt-1">PickUp</span> 
+					</label>
+				</div>
+				<div *ngIf="delivery" class="d-flex justify-content-around mt-2">
+					<input [(ngModel)]="residence" class="input-home form-control" type="text" name="" placeholder="Domicilio" id="dom" [ngModelOptions]="{standalone: true}" required>
+					<input [(ngModel)]="reference" class="input-home form-control" type="text" name="" placeholder="Timbre, reja negra, etc." id="" [ngModelOptions]="{standalone: true}" required>
+				</div>
+			</div>
+
+			<div class="row mt-4">
+				<p class="msj">
+					Horario de despacho: 13hs a 16hs y de 20hs a 23hs
+				</p>
+				<p class="msj">
+					De lunes a sabados.
+				</p>
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label (click)="whenOnCheck(2)" [ngClass]="{ 'active': now }" for="now" class="btn btn-success d-flex align-items-center justify-content-center gap-2 label-pick-up">
+						<input [(ngModel)]="now" [checked]="now" class="ms-3 btn-check" type="hidden" name="now" id="now" autocomplete="off" required>
+						<span class="mt-1">Para comer ahora</span> 
+					</label>
+					<label (click)="whenOnCheck(1)" [ngClass]="{ 'active': later }" for="later" class="btn btn-success d-flex align-items-center justify-content-center gap-2 label-pick-up">
+						<input [(ngModel)]="later"  [checked]="later" class="ms-3 btn-check" type="hidden" name="later" id="later" autocomplete="off" required>
+						<span class="mt-1">Para despues</span> 
+					</label>
+				</div>
+				<div *ngIf="later" class="col-12 mt-4">
+					<div class="input-group" aria-required="true">
+						<input (dateSelect)="dateChange(date.getDay(), date.getMonth())" class="form-control" placeholder="yyyy-mm-dd" name="dp" 
+						[(ngModel)]="model" 
+						[minDate]="minDate"
+						[maxDate]="maxDate" ngbDatepicker #d="ngbDatepicker"/>
+						<button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
+							<svg width="33" height="33" viewBox="0 0 448 512" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M436 160H12C5.4 160 0 154.6 0 148V112C0 85.5 21.5 64 48 64H96V12C96 5.4 101.4 0 108 0H148C154.6 0 160 5.4 160 12V64H288V12C288 5.4 293.4 0 300 0H340C346.6 0 352 5.4 352 12V64H400C426.5 64 448 85.5 448 112V148C448 154.6 442.6 160 436 160ZM12 192H436C442.6 192 448 197.4 448 204V464C448 490.5 426.5 512 400 512H48C21.5 512 0 490.5 0 464V204C0 197.4 5.4 192 12 192ZM128 396C128 389.4 122.6 384 116 384H76C69.4 384 64 389.4 64 396V436C64 442.6 69.4 448 76 448H116C122.6 448 128 442.6 128 436V396ZM128 268C128 261.4 122.6 256 116 256H76C69.4 256 64 261.4 64 268V308C64 314.6 69.4 320 76 320H116C122.6 320 128 314.6 128 308V268ZM256 396C256 389.4 250.6 384 244 384H204C197.4 384 192 389.4 192 396V436C192 442.6 197.4 448 204 448H244C250.6 448 256 442.6 256 436V396ZM256 268C256 261.4 250.6 256 244 256H204C197.4 256 192 261.4 192 268V308C192 314.6 197.4 320 204 320H244C250.6 320 256 314.6 256 308V268ZM384 396C384 389.4 378.6 384 372 384H332C325.4 384 320 389.4 320 396V436C320 442.6 325.4 448 332 448H372C378.6 448 384 442.6 384 436V396ZM384 268C384 261.4 378.6 256 372 256H332C325.4 256 320 261.4 320 268V308C320 314.6 325.4 320 332 320H372C378.6 320 384 314.6 384 308V268Z" fill="grey"/></svg>
+						</button>
+					</div>
+					<div class="d-flex justify-content-center">
+						<ngb-timepicker [(ngModel)]="timeToSend" name="pick-hour" (ngModelChange)="hourOnChange(timeToSend)" required/>
+					</div>
+				</div>
+				<p class="mt-2" [ngClass]="outOfRange.can? 'msj' : 'warn'">
+					{{outOfRange.msj}} <span *ngIf="outOfRange.can">✅</span>
+				</p>
+			</div>
+
+			<div class="row ">
+				<div class="col-12 d-flex justify-content-center mt-2">
+					<div ngbDropdown class="d-inline-block">
+						<button type="button" class="btn btn-outline-success" id="dropdownBasic1" ngbDropdownToggle>
+							Metodo de pago
+						</button>
+						<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+							<button (click)="payMethod('Transferencia')" ngbDropdownItem>Transferencia/Mercado Pago</button>
+							<button (click)="payMethod('Efectivo')" ngbDropdownItem>Efectivo</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 d-flex justify-content-center">
+					<p>{{payMethodSelected}}</p>
+				</div>
+			</div>	
+			<div class="d-flex justify-content-end">
+				<button type="button" class="btn btn-outline-success" (click)="send()">Pedir</button>
+			</div>
+			
+		</form>
+	</div>
+
+	<!-- FOOTER -->
+	<div class="modal-footer d-flex justify-content-center">
+		<div *ngFor="let warn of arrWarns; let i = index">
+			<div *ngIf="warn.active" class="alert alert-danger " role="alert">
+				{{warn.warn}}
+			</div>
+		  </div>
+	</div>
+
+
+</ng-template>
+<button (click)="open(content)" type="button" class="btn btn-outline-success close-button">Finalizar pedido</button>
+
+

@@ -1,0 +1,32 @@
+.nav-color{
+    background-color: rgba(8, 27, 16, 0.9);
+    color: var(--beige);
+}
+
+.offcanvas-header, .offcanvas-body{
+    background-color: var(--light-green);
+    color: var(--beige);
+}
+.li-background{
+    background-color: rgba(8, 27, 16, 0);
+    color: var(--beige);
+    list-style: none;
+}
+.principal-product{
+    font-size: large;
+    font-weight: bold;
+}
+ul ul {
+    margin-left: 2rem; /* o lo que necesites */
+}
+ul{
+    padding: 0;
+}
+.minus{
+    background-color: var(--beige);
+}
+.bottom{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}

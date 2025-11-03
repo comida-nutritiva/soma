@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --dark-green: #0B2416;
+    --light-green: rgb(40, 77, 56);
+    --beige: #F7F1DA;
+
+}
+body{
+    background-color: var(--beige);
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+.offcanvas-backdrop {
+  background-color: rgba(5, 16, 9, 0.9) !important; 
+}
+
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+html, body { height: 100%; }
+
+
