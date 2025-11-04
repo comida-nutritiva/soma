@@ -60,9 +60,9 @@ export class ModalComponent implements OnInit {
 	open(content: any) {
 		this.total=this.product.price;
 		fbq('track', 'ViewContent', {
-			content_ids: [String(content.id)], 
-			content_name:String(content.name),
-			value: content.price, 
+			content_ids: [String(this.product.id)], 
+			content_name:String(this.product.name),
+			value: this.product.price, 
       		currency: 'ARS'
     	});
 		console.log(content);
