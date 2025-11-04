@@ -7,6 +7,9 @@ import { NgFor, NgIf } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
+
+declare const fbq: any;
+
 @Component({
   selector: 'app-modal',
   standalone: true,
@@ -56,6 +59,12 @@ export class ModalComponent implements OnInit {
 
 	open(content: any) {
 		this.total=this.product.price;
+		fbq('track', 'ViewContent', {
+			content_ids: [content.id], 
+			content_name: content.name,
+			value: content.price, 
+      		currency: 'ARS'
+    	});
 		this.modalRef = this.modalService.open(content);
 	}
 
