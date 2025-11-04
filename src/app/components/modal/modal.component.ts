@@ -60,12 +60,12 @@ export class ModalComponent implements OnInit {
 	open(content: any) {
 		this.total=this.product.price;
 		fbq('track', 'ViewContent', {
-			content_ids: [content.id], 
-			content_name: content.name,
+			content_ids: [String(content.id)], 
+			content_name:String(content.name),
 			value: content.price, 
       		currency: 'ARS'
     	});
-		console.log("tamos", fbq);
+		console.log(content);
 		
 		this.modalRef = this.modalService.open(content);
 	}
