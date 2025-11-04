@@ -65,6 +65,8 @@ export class ModalComponent implements OnInit {
 			value: content.price, 
       		currency: 'ARS'
     	});
+		console.log("tamos", fbq);
+		
 		this.modalRef = this.modalService.open(content);
 	}
 
