@@ -65,7 +65,7 @@ export class ModalComponent implements OnInit {
 			value: this.product.price, 
       		currency: 'ARS'
     	});
-		console.log(content);
+		console.log(this.product);
 		
 		this.modalRef = this.modalService.open(content);
 	}
