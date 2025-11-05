@@ -125,7 +125,7 @@ export class ModalComponent implements OnInit {
 		this.optionals = this.productService.getOptionals();
 		this.modalRef?.close('');
 		//meta pixel send info code
-		fbq('track', 'CustomizeProduct', {
+		fbq('track', 'AddToCart', {
 			content_ids: [String(c.id)], 
 			value: c.getTotalValue(), 
 			contents: [{

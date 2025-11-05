@@ -136,6 +136,9 @@ export class ModalPayComponent {
 	open(content: any) {
 		//meta pixel send info code
 		fbq('track', 'InitiateCheckout', {
+			content_ids: this.cartService.getCartItemsIds(), 
+			currency : "ARS",
+			value : this.cartService.getTotalValue()
     	});
 		this.modalRef = this.modalService.open(content);
 	}

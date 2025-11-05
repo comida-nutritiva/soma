@@ -55,7 +55,8 @@ export class NavComponent implements OnInit {
 
   onOpenSideNav(content: any) {
     //meta pixel send info code
-		fbq('trackCustom', 'ViewCart', {     
+		fbq('trackCustom', 'ViewCart', {
+           
     });
     this.open(content);
   }

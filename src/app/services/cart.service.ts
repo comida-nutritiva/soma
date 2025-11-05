@@ -38,6 +38,12 @@ export class CartService {
   getCart(): Cart{
     return this.cartSubject.value;
   }
+  getCartItemsIds(): string[]{
+    const cart = this.cartSubject.value;
+    let list : string[] = [];
+    cart.getCart().map(a =>{list.push(String(a.id))});
+    return list;
+  }
 
   getDeliveryInfo(): DeliveryInfo{
     return this.deliveryInfo;
