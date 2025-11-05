@@ -35,9 +35,10 @@ export class Cart{
         this.cartItem.splice(this.cartItem.findIndex(p => p.id === id),1);
     }
 
-    addItem(p:Product, o:Optional[]){
+    addItem(p:Product, o:Optional[]): CartItem{
         const item = new CartItem(p, o);
         this.cartItem.push(item);
+        return item;
     }
 
     getCart(): CartItem[]{

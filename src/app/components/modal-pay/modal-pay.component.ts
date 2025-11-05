@@ -13,6 +13,8 @@ import {
 from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from '../../services/cart.service';
 
+declare const fbq: any;
+
 @Component({
   selector: 'app-modal-pay',
   imports: [
@@ -132,6 +134,9 @@ export class ModalPayComponent {
 	}
 
 	open(content: any) {
+		//meta pixel send info code
+		fbq('track', 'InitiateCheckout', {
+    	});
 		this.modalRef = this.modalService.open(content);
 	}
 
@@ -157,6 +162,13 @@ export class ModalPayComponent {
 				deliveryIfo.setScheduledTime(this.dayMonth, this.timeToSend)
 			}
 			deliveryIfo.payMethod = this.payMethodSelected=== "Efectivo"?  'cash' : 'transfer'; 
+
+			//meta pixel send info code
+			//Obligatorio en el caso de los anuncios del catálogo de Advantage+: contents o content_ids
+			fbq('track', 'Purchase', {
+				currency : 'ARS',
+				value: this.cartService.getTotalValue()
+    		});
 			let b = this.cartService.sendMsg();
 			if (!b){
 				//cart empty b==true 

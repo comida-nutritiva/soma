@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cart } from '../models/cart.model';
+import { Cart, CartItem } from '../models/cart.model';
 import { Product } from '../models/product.model';
 import { Optional } from '../models/optional.model';
 import { BehaviorSubject } from 'rxjs';
@@ -16,11 +16,12 @@ export class CartService {
   constructor() {
   }
 
-  addItem(p: Product, o:Optional[]){
+  addItem(p: Product, o:Optional[]) : CartItem{
     const cart = this.cartSubject.value;
-    cart.addItem(p, o);
+    const ci = cart.addItem(p, o);
     const c = new Cart(cart.getCart());
     this.cartSubject.next(c);
+    return ci;
   }
 
   removeItem(id:number){

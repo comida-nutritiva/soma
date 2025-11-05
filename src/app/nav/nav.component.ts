@@ -4,6 +4,9 @@ import { NgFor, NgIf } from '@angular/common';
 import { CartService } from '../services/cart.service';
 import { Cart } from '../models/cart.model';
 import { ModalPayComponent } from '../components/modal-pay/modal-pay.component';
+
+declare const fbq: any;
+
 @Component({
   selector: 'app-nav',
   imports: [NgFor, NgIf, ModalPayComponent],
@@ -43,7 +46,18 @@ export class NavComponent implements OnInit {
 	}
 
   removeItem(id:number){
+    //meta pixel send info code
+		fbq('trackCustom', 'RemoveItem', {
+      content_ids: [String(id)],
+    });
     this.cartService.removeItem(id);
+  }
+
+  onOpenSideNav(content: any) {
+    //meta pixel send info code
+		fbq('trackCustom', 'ViewCart', {     
+    });
+    this.open(content);
   }
 
 }

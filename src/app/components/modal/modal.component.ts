@@ -59,14 +59,13 @@ export class ModalComponent implements OnInit {
 
 	open(content: any) {
 		this.total=this.product.price;
+		//meta pixel send info code
 		fbq('track', 'ViewContent', {
 			content_ids: [String(this.product.id)], 
 			content_name:String(this.product.name),
 			value: this.product.price, 
-      		currency: 'ARS'
+      		currency: 'ARS',
     	});
-		console.log(this.product);
-		
 		this.modalRef = this.modalService.open(content);
 	}
 
@@ -86,6 +85,13 @@ export class ModalComponent implements OnInit {
 				}, 5000);
 			}
 		}
+		//meta pixel send info code
+		fbq('track', 'CustomizeProduct', {
+			content_ids: [String(op.id)], 
+			content_name:String(op.name),
+			value: op.price, 
+      		currency: 'ARS',
+    	});
 		this.totalCart = this.optionalsCart.reduce((total, p) => total + p.price, 0);
 		this.total = this.product.price + this.totalCart;
 	}
@@ -103,13 +109,43 @@ export class ModalComponent implements OnInit {
 			this.totalCart = this.optionalsCart.reduce((total, p) => total + p.price * p.count, 0);
 			this.total = this.product.price + this.totalCart;
 		}
+		//meta pixel send info code
+		fbq('track', 'CustomizeProduct', {
+			content_ids: [String(op.id)], 
+			content_name:String(op.name),
+			value: -op.price, 
+      		currency: 'ARS',
+    	});
 	}
 
 	close(){
-		this.cartService.addItem(this.product, this.optionalsCart);
+		const c = this.cartService.addItem(this.product, this.optionalsCart);
 		this.optionalsCart = [];
 		this.productService.cleanOptionals();
 		this.optionals = this.productService.getOptionals();
 		this.modalRef?.close('');
+		//meta pixel send info code
+		fbq('track', 'CustomizeProduct', {
+			content_ids: [String(c.id)], 
+			value: c.getTotalValue(), 
+			contents: [{
+				id: c.id,
+				quantity: 1,
+				data: c
+			}],
+      		currency: 'ARS',
+    	});
+	}
+
+	onCloseModal(dismissFn: any) {
+	fbq('trackCustom', 'ModalCerradoSinAgregar', {
+		content_ids: [String(this.product.id)],
+		contents: [{
+			id: this.product.id,
+			quantity: 1,
+			data: this.product
+		}]
+	});
+	dismissFn('Cross click');
 	}
 }
