@@ -9,6 +9,7 @@ import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
 
 declare const fbq: any;
+declare const gtag: any;
 
 @Component({
   selector: 'app-modal',
@@ -66,6 +67,12 @@ export class ModalComponent implements OnInit {
 			value: this.product.price, 
       		currency: 'ARS',
     	});
+
+		gtag('event', 'open_modal', {
+    		modal_name: 'producto_detalle',
+    		method: 'click'
+  		});
+
 		this.modalRef = this.modalService.open(content);
 	}
 
