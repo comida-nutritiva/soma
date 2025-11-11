@@ -68,7 +68,7 @@ export class ModalComponent implements OnInit {
       		currency: 'ARS',
     	});
 
-		gtag('event', 'open_modal', {
+		gtag('event', 'ver_producto', {
     		modal_name: 'producto_detalle',
     		method: 'click'
   		});
@@ -99,6 +99,11 @@ export class ModalComponent implements OnInit {
 			value: op.price, 
       		currency: 'ARS',
     	});
+
+		gtag('event', 'plus_personalizar_producto', {
+    		modal_name: 'producto_detalle',
+    		method: 'click'
+  		});
 		this.totalCart = this.optionalsCart.reduce((total, p) => total + p.price, 0);
 		this.total = this.product.price + this.totalCart;
 	}
@@ -123,6 +128,10 @@ export class ModalComponent implements OnInit {
 			value: -op.price, 
       		currency: 'ARS',
     	});
+		gtag('event', 'minus_personalizar_producto', {
+    		modal_name: 'producto_detalle',
+    		method: 'click'
+  		});
 	}
 
 	close(){
@@ -153,6 +162,10 @@ export class ModalComponent implements OnInit {
 			data: this.product
 		}]
 	});
+	gtag('event', 'modal_cerrado_sin_agregar', {
+    		modal_name: 'producto_detalle',
+    		method: 'click'
+  	});
 	dismissFn('Cross click');
 	}
 }

@@ -6,6 +6,7 @@ import { Cart } from '../models/cart.model';
 import { ModalPayComponent } from '../components/modal-pay/modal-pay.component';
 
 declare const fbq: any;
+declare const gtag: any;
 
 @Component({
   selector: 'app-nav',
@@ -50,6 +51,10 @@ export class NavComponent implements OnInit {
 		fbq('trackCustom', 'RemoveItem', {
       content_ids: [String(id)],
     });
+    gtag('event', 'quitar_elemento_carrito', {
+    		modal_name: 'producto_detalle',
+    		method: 'click'
+  	});
     this.cartService.removeItem(id);
   }
 
@@ -58,6 +63,10 @@ export class NavComponent implements OnInit {
 		fbq('trackCustom', 'ViewCart', {
            
     });
+    gtag('event', 'ver_carrito', {
+    		modal_name: 'producto_detalle',
+    		method: 'click'
+  	});
     this.open(content);
   }
 

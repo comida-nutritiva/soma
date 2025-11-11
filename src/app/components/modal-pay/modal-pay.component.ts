@@ -14,6 +14,7 @@ from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from '../../services/cart.service';
 
 declare const fbq: any;
+declare const gtag: any;
 
 @Component({
   selector: 'app-modal-pay',
@@ -140,6 +141,10 @@ export class ModalPayComponent {
 			currency : "ARS",
 			value : this.cartService.getTotalValue()
     	});
+		gtag('event', 'iniciar_pago', {
+    		modal_name: 'producto_detalle',
+    		method: 'click'
+  		});
 		this.modalRef = this.modalService.open(content);
 	}
 
@@ -172,6 +177,10 @@ export class ModalPayComponent {
 				currency : 'ARS',
 				value: this.cartService.getTotalValue()
     		});
+			gtag('event', 'purchase', {
+				modal_name: 'producto_detalle',
+				method: 'click'
+			});
 			let b = this.cartService.sendMsg();
 			if (!b){
 				//cart empty b==true 
