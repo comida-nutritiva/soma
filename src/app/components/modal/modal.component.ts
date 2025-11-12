@@ -7,6 +7,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
+import { getAnalytics, logEvent } from 'firebase/analytics';
 
 declare const fbq: any;
 declare const gtag: any;
@@ -54,7 +55,8 @@ export class ModalComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-
+		const analytics = getAnalytics();
+		logEvent(analytics, 'open_modal', { modal_name: this.product });
 	}
 
 
