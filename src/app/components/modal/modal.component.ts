@@ -56,7 +56,7 @@ export class ModalComponent implements OnInit {
 
 	ngOnInit(): void {
 		const analytics = getAnalytics();
-		logEvent(analytics, 'open_modal', { modal_name: this.product });
+		logEvent(analytics, 'open_modal', { modal_name: this.product.name });
 	}
 
 
